@@ -21,8 +21,8 @@ struct ContentView: View {
                         
                         Text(destinations.date.formatted(date:.long, time: .shortened))
                     }
-                    
                 }
+                .onDelete(perform: deleteDestinations)
             }
             .navigationTitle("iTour")
             .toolbar {
@@ -38,6 +38,13 @@ struct ContentView: View {
         modelContext.insert(florence)
         modelContext.insert(naples)
     }
+    
+    func deleteDestinations(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let destination = destinations[index]
+            modelContext.delete(destination)
+        }
+    }
 }
 
 #Preview {
@@ -48,6 +55,6 @@ struct ContentView: View {
 /*
  @Query는 무엇인가?
  SwiftData가 관리하는 모든 Destination개체를 읽는다.
- 뷰가 나타나면 즉시 모든 대상을 로드하고 Destination개체가 추가 삭제
+ 뷰가 나타나면 즉시 모든 대상을 로드하고 Destination개체가 추가, 삭제
  또는 변경될때마다 데이터베이스의 변경사항도 항시 감시한다. 그때 destinations의 속성도 업데이트한다.
  */
