@@ -11,8 +11,11 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Query var destinations: [Destination]
+    @State private var path = [Destination]()
+    
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 ForEach(destinations) { destinations in
                     NavigationLink(value: destinations) {
@@ -29,17 +32,14 @@ struct ContentView: View {
             .navigationTitle("iTour")
             .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
             .toolbar {
-                Button("샘플 추가", action: addSamples)
+                Button("목적지 추가", systemImage: "plus", action: addDestionation)
             }
         }
     }
-    func addSamples() {
-        let rome = Destination(name: "Rome")
-        let florence = Destination(name: "Florence")
-        let naples = Destination(name: "Naples")
-        modelContext.insert(rome)
-        modelContext.insert(florence)
-        modelContext.insert(naples)
+    func addDestionation() {
+        let destionation = Destination()
+        modelContext.insert(destionation)
+        path = [destionation]
     }
     
     func deleteDestinations(_ indexSet: IndexSet) {

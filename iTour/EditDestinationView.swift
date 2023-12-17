@@ -45,5 +45,9 @@ struct EditDestinationView: View {
 
 /*
  @Bindable?
+ 관찰 가능한 객체의 변경 가능한 속성에 대한 바인딩 생성을 지원하는 속성 래퍼
+ 유형입니다.
  
+ 그럼 바인딩과의 차이점은?
+ https://www.donnywals.com/whats-the-difference-between-binding-and-bindable/
  */
