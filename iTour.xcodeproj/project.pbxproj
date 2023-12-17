@@ -12,6 +12,7 @@
 		AC4D2CEE2B2DE2B30038FCC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4D2CED2B2DE2B30038FCC2 /* Assets.xcassets */; };
 		AC4D2CF12B2DE2B30038FCC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4D2CF02B2DE2B30038FCC2 /* Preview Assets.xcassets */; };
 		AC4D2CF82B2DE2ED0038FCC2 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D2CF72B2DE2ED0038FCC2 /* Destination.swift */; };
+		AC72AFB62B2F3DEB0063F878 /* EditDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC72AFB52B2F3DEB0063F878 /* EditDestinationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		AC4D2CED2B2DE2B30038FCC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC4D2CF02B2DE2B30038FCC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC4D2CF72B2DE2ED0038FCC2 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		AC72AFB52B2F3DEB0063F878 /* EditDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDestinationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				AC4D2CE92B2DE2B20038FCC2 /* iTourApp.swift */,
 				AC4D2CEB2B2DE2B20038FCC2 /* ContentView.swift */,
+				AC72AFB52B2F3DEB0063F878 /* EditDestinationView.swift */,
 				AC4D2CF72B2DE2ED0038FCC2 /* Destination.swift */,
 				AC4D2CED2B2DE2B30038FCC2 /* Assets.xcassets */,
 				AC4D2CEF2B2DE2B30038FCC2 /* Preview Content */,
@@ -143,6 +146,7 @@
 				AC4D2CEC2B2DE2B20038FCC2 /* ContentView.swift in Sources */,
 				AC4D2CEA2B2DE2B20038FCC2 /* iTourApp.swift in Sources */,
 				AC4D2CF82B2DE2ED0038FCC2 /* Destination.swift in Sources */,
+				AC72AFB62B2F3DEB0063F878 /* EditDestinationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
