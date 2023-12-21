@@ -10,30 +10,32 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query(sort: [SortDescriptor(\Destination.priority, order: .reverse),SortDescriptor(\Destination.name)]) var destinations: [Destination]
     @State private var path = [Destination]()
-    
+    @State private var sortOrder = SortDescriptor(\Destination.name)
     
     var body: some View {
         NavigationStack(path: $path) {
-            List {
-                ForEach(destinations) { destinations in
-                    NavigationLink(value: destinations) {
-                        VStack(alignment:.leading) {
-                            Text(destinations.name)
-                                .font(.headline)
+            DestinationListingView(sort: sortOrder)
+                .navigationTitle("iTour")
+                .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
+                .toolbar {
+                    Button("목적지 추가", systemImage: "plus", action: addDestionation)
+                    
+                    Menu("정렬", systemImage: "arrow.up.arrow.down") {
+                        Picker("정렬", selection: $sortOrder) {
                             
-                            Text(destinations.date.formatted(date:.long, time: .shortened))
+                            Text("이름")
+                                .tag(SortDescriptor(\Destination.name))
+                            
+                            Text("속성")
+                                .tag(SortDescriptor(\Destination.priority, order: .reverse))
+                            
+                            Text("날짜")
+                                .tag(SortDescriptor(\Destination.date))
                         }
+                        .pickerStyle(.inline)
                     }
                 }
-                .onDelete(perform: deleteDestinations)
-            }
-            .navigationTitle("iTour")
-            .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
-            .toolbar {
-                Button("목적지 추가", systemImage: "plus", action: addDestionation)
-            }
         }
     }
     func addDestionation() {
@@ -42,12 +44,7 @@ struct ContentView: View {
         path = [destionation]
     }
     
-    func deleteDestinations(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let destination = destinations[index]
-            modelContext.delete(destination)
-        }
-    }
+    
 }
 
 #Preview {
