@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var destinations: [Destination]
+    @Query(sort: [SortDescriptor(\Destination.priority, order: .reverse),SortDescriptor(\Destination.name)]) var destinations: [Destination]
     @State private var path = [Destination]()
     
     
