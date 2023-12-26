@@ -10,14 +10,17 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
+    
     @State private var path = [Destination]()
     @State private var sortOrder = SortDescriptor(\Destination.name)
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack(path: $path) {
-            DestinationListingView(sort: sortOrder)
+            DestinationListingView(sort: sortOrder, searchString:searchText)
                 .navigationTitle("iTour")
                 .navigationDestination(for: Destination.self, destination: EditDestinationView.init)
+                .searchable(text: $searchText)
                 .toolbar {
                     Button("목적지 추가", systemImage: "plus", action: addDestionation)
                     
